@@ -1,23 +1,43 @@
-const SET_FILES = "SET_FILES";
+import { createSlice } from "@reduxjs/toolkit";
+import { getFiles } from "../../services";
 
-// Action
-export const setFiles = (files) => ({
-  type: SET_FILES,
-  payload: files,
-});
-
-// Reducer
 const initialState = {
   files: [],
+  loading: false,
+  error: null,
 };
 
-const filesReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case SET_FILES:
-      return { ...state, files: action.payload };
-    default:
-      return state;
-  }
-};
+const filesSlice = createSlice({
+  name: "files",
+  initialState,
+  reducers: {
+    fetchFilesStart: (state) => {
+      state.loading = true;
+    },
+    fetchFilesSuccess: (state, action) => {
+      state.loading = false;
+      state.files = action.payload;
+    },
+    fetchFilesFailure: (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    },
+  },
+});
 
-export default filesReducer;
+export const { fetchFilesStart, fetchFilesSuccess, fetchFilesFailure } =
+  filesSlice.actions;
+
+export const fetchFiles =
+  (fileName = "") =>
+  async (dispatch) => {
+    dispatch(fetchFilesStart());
+    try {
+      const files = await getFiles(fileName);
+      dispatch(fetchFilesSuccess(files));
+    } catch (error) {
+      dispatch(fetchFilesFailure(error.message));
+    }
+  };
+
+export default filesSlice.reducer;
