@@ -1,12 +1,35 @@
-# Getting Started with Create React App
+# FileProcessorClient - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the frontend application for the FileProcessorAPI, built with React. It allows users to search for files, view file details in a responsive table, and displays relevant error messages when needed.
 
-## Available Scripts
+## Features
+
+- **Search by File Name**: Allows users to search for files by name.
+- **Responsive Table**: Displays file data (File, Text, Number, Hex) in a responsive table layout.
+- **Error Handling**: Shows error messages when fetching data or when no files are found.
+
+## Tech Stack
+
+- **React**: Frontend framework for building the UI.
+- **Redux**: State management to handle the fetching of file data.
+- **React-Bootstrap**: Bootstrap components for a clean, responsive UI.
+- **React Hooks**: To manage component state and side effects.
+- **Axios**: To fetch data from the backend API.
+
+## Installation
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/your-username/FileProcessorClient.git
+```
 
 In the project directory, you can run:
 
-### `npm start`
+```bash
+    npm install
+    npm start
+```
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
@@ -27,44 +50,20 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### Running with Docker Compose
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+To run the application with Docker Compose, use the following command:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+docker-compose up -d --build
+```
+This will build the Docker image for the frontend and start the application. Open http://localhost:3000 in your browser to view the app running in the Docker container.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+###  Dependencies
+This frontend is dependent on the FileProcessorAPI backend. Ensure that the backend API is running before using the frontend application.
 
-## Learn More
+###  Modifying the Backend URL
+If the backend API URL needs to be changed (e.g., for production or development environments), you can modify the URL in the configuration file. The URL is typically set in the config.js or a similar file in the frontend project. Ensure that the correct URL is set for the backend API to communicate properly.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

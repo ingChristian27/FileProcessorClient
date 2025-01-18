@@ -9,7 +9,7 @@ const useFiles = (fileName) => {
 
   useEffect(() => {
     dispatch(fetchFiles(fileName));
-  }, [fileName]);
+  }, [fileName, dispatch]);
 
   return { files, loading, error };
 };

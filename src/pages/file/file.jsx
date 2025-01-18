@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from "react";
-import { Container, Alert } from "react-bootstrap";
+import { Container, Alert, Row, Col } from "react-bootstrap";
 import { useFiles } from "../../hooks";
 import { Loader, SearchByName } from "../../components/elements";
 import { FileList } from "../../components/blocks";
@@ -14,8 +14,17 @@ const FilePage = () => {
   return (
     <>
       <Navbar />
-      <SearchByName fileName={fileName} setFileName={handleFileNameChange} />
-      <Container>
+
+      <Container className="mt-4">
+        <Row className="justify-content-center mb-4">
+          <Col md={6}>
+            <SearchByName
+              fileName={fileName}
+              setFileName={handleFileNameChange}
+            />
+          </Col>
+        </Row>
+
         {loading ? (
           <Loader />
         ) : error ? (
